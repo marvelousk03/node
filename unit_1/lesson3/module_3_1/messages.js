@@ -6,4 +6,4 @@
 //   "Success is in your future!"
 // ];
 
-exports.messages = ["Good Job!", "Welldone.", "Have a great day."];
+exports.messages = [`Good Job!, Welldone., Have a great day.`];
