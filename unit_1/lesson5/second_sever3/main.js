@@ -1,10 +1,10 @@
 "use strict";
 
 const routeResponseMap = {
-  "/info": "<h1>Info Page</h1>",
-  "/contact": "<h1>Contact Us</h1>",
-  "/about": "<h1>Learn More About Us.</h1>",
-  "/hello": "<h1>Say hello by emailing us here</h1>",
+  "/info": "<h1>Information.</h1>",
+  "/contact": "<h1>Communication.</h1>",
+  "/about": "<h1>What would you like to learn about us.</h1>",
+  "/hello": "<h1>You can email us here: marvel@gmail.com</h1>",
   "/error": "<h1>Sorry the page you are looking for is not here.</h1>"
 };
 
@@ -18,7 +18,7 @@ const port = 3000,
     if (routeResponseMap[req.url]) {
       res.end(routeResponseMap[req.url]);
     } else {
-      res.end("<h1>Welcome!</h1>");
+      res.end("<h1>Welcome To Marvelous' Web Page!</h1>");
     }
   });
 app.listen(port);
