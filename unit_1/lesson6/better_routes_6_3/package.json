@@ -1,15 +1,11 @@
 {
-  "name": "better_routes",
+  "name": "better_routes_6_3",
   "version": "1.0.0",
-  "description": "A simple server with better routing in Node.js",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Jon Wexler",
+  "author": "",
   "license": "ISC",
-  "dependencies": {
-    "http-status-codes": "^1.4.0"
-  },
-  "devDependencies": {}
+  "description": ""
 }
