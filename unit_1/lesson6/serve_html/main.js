@@ -23,7 +23,12 @@ const customReadFile = (file, res) => {
 
 router.get("/", (req, res) => {
     res.writeHead(httpStatusCodes.OK, plainTextContentType);
-    res.end("INDEX");//plain text
+    res.end("Hi, Welcome to my web page!");//plain text
+});
+
+router.get("/contact", (req, res) => {
+    res.writeHead(httpStatusCodes.OK, plainTextContentType);
+    res.end("Email: marve@gmail.com");
 });
 
 router.get("/index.html", (req, res) => {
