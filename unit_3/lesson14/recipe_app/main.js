@@ -23,8 +23,8 @@ db.once("open", () => {
 //CREATING DOCUMENTS TO SAVE TO DB
 //promises
 Subscriber.create({
-  name: "Jada Mathele",
-  email: "jada@mathele.com"
+  name: "Marvelous Favour",
+  email: "marve@test.com"
 })
   .then((savedDoc) => {
     console.log(savedDoc);
@@ -33,7 +33,7 @@ Subscriber.create({
     console.log(err);
   });
 
-const query = Subscriber.find({ name: "Jada Mathele" }).exec();
+const query = Subscriber.find({ name: "Marvelous Favour" }).exec();
 query
   .then(docs => {
     console.log(docs); // Handle the results
