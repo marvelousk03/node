@@ -1,6 +1,12 @@
 "use strict";
 
 const User = require("../models/user");
+const userController = require("./controllers/userController");
+
+router.post("/users/delete/:id", 
+  userController.delete, 
+  userController.redirectView
+);
 
 //takes a body object as input and returns an object containing
 //specific properties extracted from the body
@@ -111,16 +117,50 @@ module.exports = {
         next(error);
       });
   },
+
   delete: (req, res, next) => {
     let userId = req.params.id;
     User.findByIdAndRemove(userId)
       .then(() => {
+        req.flash("success", "User account has been deleted successfully!");
         res.locals.redirect = "/users";
         next();
       })
       .catch(error => {
         console.log(`Error deleting user by ID: ${error.message}`);
+        req.flash("error", `Failed to delete user account because: ${error.message}.`);
+        res.locals.redirect = "/users";
         next();
       });
   }
 };
+//   delete: (req, res, next) => {
+//     let userId = req.params.id;
+//     User.findByIdAndRemove(userId)
+//       .then(() => {
+//         req.flash("success account have been deleted!!");
+//         res.locals.redirect = "/users";
+//         next();
+//       })
+//       .catch(error => {
+//         console.log(`Error deleting user by ID: ${error.message}`);
+//         next();
+//       });
+//   }
+// };
+
+// create: (req, res, next) => {
+//   let userParams = getUserParams(req.body);
+//   User.create(userParams)
+//     .then(user => {
+//       req.flash("success", `${user.fullName}'s account was created successfully!`);
+//       res.locals.redirect = "/users";
+//       res.locals.user = user;
+//       next();
+//     })
+//     .catch(error => {
+//       console.log(`Error saving user: ${error.message}`);
+//       res.locals.redirect = "/users/new";//remains on creation form
+//       req.flash("error", `Failed to create user account because: ${error.message}.`)
+//       next();
+//     });
